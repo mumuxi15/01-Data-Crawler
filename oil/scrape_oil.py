@@ -26,7 +26,8 @@ def get_text_bs(tree):
 		data.append([product,price,timestamp])
 	return data
 
-def get_oil_price(url,engine):
+def get_oil_price(url='https://oilprice.com/oil-price-charts'):
+	'choose output method: sql|csv'
 	r = {}
 	response = requests.get(url)
 	page = response.text
@@ -34,5 +35,17 @@ def get_oil_price(url,engine):
 		
 	data = get_text_bs(soup)
 	df = pd.DataFrame(data,columns=['product_name','price','timestamp'])
-	df.to_sql('oil',con=engine,if_exists='append')
+	#df['timestamp'] = pd. to_datetime(df['timestamp'], unit='s')
+	loc = 'data/oil_price.csv'
+	try:
+		df = pd.read_csv(loc, index_col=0)
+		df.to_csv(loc, mode='a', header=False)
+
+	except FileNotFoundError as e:
+		print (e)
+		print ('-------   Create a new file   --------')
+		df.to_csv(loc)
+	
+	
+get_oil_price()
 	
