@@ -7,7 +7,7 @@ Personal use only.
 
 #### OIL
 
-- Url  - [link](https://oilprice.com/oil-price-charts)
+- Data source - [link](https://oilprice.com/oil-price-charts)
 
 - Download folder called oil
 
@@ -20,6 +20,14 @@ Personal use only.
 - Last tested - 2021/06
 
 
+
+#### Covid-19
+
+- Data source - [link](https://www.worldometers.info/coronavirus/)
+
+- World total and by countries
+
+  
 
 #### Airbnb
 
